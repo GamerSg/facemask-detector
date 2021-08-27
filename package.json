@@ -1,0 +1,30 @@
+{
+  "name": "facemask-detector",
+  "version": "1.0.0",
+  "description": "Detects if people are wearing masks and who they are",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GamerSg/facemask-detector.git"
+  },
+  "keywords": [
+    "face",
+    "mask",
+    "CNN",
+    "deep",
+    "learning"
+  ],
+  "author": "Luv Khemani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GamerSg/facemask-detector/issues"
+  },
+  "homepage": "https://github.com/GamerSg/facemask-detector#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
