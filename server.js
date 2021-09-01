@@ -5,7 +5,7 @@ const express = require("express");
 var app = express();
 var host = "localhost";
 var port = 8080;
-var startPage = "test.html";
+var startPage = "testFD.html";
 
 
 function gotoIndex(req, res) {
