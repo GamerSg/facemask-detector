@@ -1,6 +1,6 @@
 #videoElement {
-	width: 500px;
-	height: 375px;
+	width: 640px;
+	height: 480px;
 	background-color: #666;
 }
 #overlay, .overlay {
@@ -8,8 +8,8 @@
 	top: 0;
 	left: 0;
 	margin: 0px auto;
-	width: 500px;
-	height: 375px;
+	width: 640px;
+	height: 480px;
 	border: 1px solid #000000;;
 	background-color: #12312322;
   }

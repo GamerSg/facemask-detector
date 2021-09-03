@@ -16,23 +16,18 @@ async function startWebCam() {
     }
 }
 
-async function detectFaces()
+async function detectFacesVideo(inputSrc, overlay)
 {
-    const inputSrc = document.getElementById('videoElement');
-    const overlay = document.getElementById('overlay');
-    var fdOptions = new faceapi.SsdMobilenetv1Options({ minConfidence });
-    
+    var fdOptions = new faceapi.SsdMobilenetv1Options({ minConfidence });    
     const results = await faceapi.detectAllFaces(inputSrc, fdOptions);
     console.log("Detected faces : " + results);
     const dims = faceapi.matchDimensions(overlay, inputSrc, true);
     faceapi.draw.drawDetections(overlay, faceapi.resizeResults(results, dims));
-    setTimeout(detectFaces, 50);
+    setTimeout(detectFaces, 50, inputSrc, overlay);
 }
 
 async function init() {
     console.log(faceapi.nets);
     await startWebCam();
     await faceapi.nets.ssdMobilenetv1.loadFromUri(MODEL_URL);
-
-   
 }
