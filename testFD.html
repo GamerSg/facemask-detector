@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/face-api.js"></script>
+        <script src="js/face.js"></script>
+    </head>
+    <body>testing face api
+        <div id="container" style="position: relative">
+            <video onloadedmetadata="detectFaces()" autoplay="true" id="videoElement"></video> 
+            <canvas id="overlay" class="overlay" />
+        </div>
+        <script>
+        init();
+        function detectFaces()
+        {
+            const inputSrc = document.getElementById('videoElement');
+            const overlay = document.getElementById('overlay');
+            detectFacesVideo(inputSrc, overlay);
+        }
+        </script>
+    </body>
+</html>
