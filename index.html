@@ -8,6 +8,12 @@
     <title>Upload File</title>
 
     <style>
+        #container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
         .image_preview {
             width: 500px;
             min-height: 200px;
@@ -26,6 +32,44 @@
             display: none;
             width: 100%;
         }
+
+        #imageFile {
+            background-color: #1d3557;
+            color: #f1faee;
+        }
+
+        #videoFile {
+            background-color: #1d3557;
+            color: #f1faee;
+        }
+
+        button {
+            margin: 20px 100px 20px 100px;
+            width: 200px;
+            height: 50px;
+            font-size: 20px;
+            transform: translateY(60px);
+            cursor: pointer;
+        }
+
+        #button_video {
+            transform: translateY(60px);
+        }
+
+        button:hover {
+            background-color: #e63946;
+            color: #f1faee;
+        }
+
+        .wrapper {
+            margin: 0 auto;
+            width: 200px;
+            display: flex;
+        }
+
+        video {
+            width: 100%;
+        }
     </style>
 
 </head>
@@ -34,10 +78,36 @@
 
     <h1>Upload Image File</h1>
     <input type="file" name="imageFile" id="imageFile">
-    <div class="image_preview" id="imagePreview">
-        <img src="" alt="Image Preview" class="image_preview_image">
-        <span class="image_preview_text">Image Preview</span>
-    </div>
+    <section id="container">
+        <div class="image_preview" id="imagePreview">
+            <img src="" alt="Image Preview" class="image_preview_image">
+            <span class="image_preview_text">Image Preview</span>
+        </div>
+        <button>Detection Mode</button>
+        <div class="image_preview" id="imagePreview">
+            <img src="" alt="Image Preview" class="image_preview_image">
+            <span class="image_preview_text">Image Preview</span>
+        </div>
+    </section>
+
+    <hr>
+
+    <h1>Upload Video File</h1>
+    <input type="file" name="videoFile" id="videoFile">
+    <p></p>
+    <section id="container">
+        <div class="wrapper">
+            <video controls>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <button id="button_video">Detection Mode</button>
+        <div class="wrapper">
+            <video controls>
+                <source src="" type="video/mp4">
+            </video>
+        </div>
+    </section>
 
     <script>
         const imageFile = document.getElementById("imageFile");
