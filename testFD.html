@@ -4,7 +4,18 @@
         <script src="js/face-api.js"></script>
         <script src="js/face.js"></script>
     </head>
-    <body>testing face api
+    <body>
+        <h1>Upload Image File</h1>
+        <input type="file" name="imageFile" id="imageFile">
+        <section id="container">
+            <div class="image_preview">
+                <img id="imagePreview" src="" alt="Image Preview" class="image_preview_image">
+            </div>
+            <input type="text" id="label">
+            <button onclick="doRegisterFace()">Register</button>
+        </section>
+        <BR>
+
         <div id="container" style="position: relative">
             <video onloadedmetadata="detectFaces()" autoplay="true" id="videoElement"></video> 
             <canvas id="overlay" class="overlay" />
@@ -17,6 +28,39 @@
             const overlay = document.getElementById('overlay');
             detectFacesVideo(inputSrc, overlay);
         }
+
+        function doRegisterFace()
+        {
+            const img = document.getElementById('imagePreview');
+            const lbl = document.getElementById('label').value;
+            registerFace(img,lbl);
+        }
+
+        ///Registration code
+        const imageFile = document.getElementById("imageFile");
+        const previewImage = document.getElementById("imagePreview");
+        
+
+        imageFile.addEventListener("change", function () {
+            const file = this.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+               // previewText.style.display = "none";
+                previewImage.style.display = "block";
+
+                reader.addEventListener("load", function () {
+                    previewImage.setAttribute("src", this.result);
+                });
+
+                reader.readAsDataURL(file);
+            } else {
+              //  previewText.style.display = "null";
+                previewImage.style.display = "null";
+                previewImage.setAttribute("src", "");
+            }
+        });
         </script>
     </body>
 </html>

@@ -13,3 +13,8 @@
 	border: 1px solid #000000;;
 	background-color: #12312322;
   }
+
+  .image_preview_image {
+	display: none;
+	width: 25%;
+}
