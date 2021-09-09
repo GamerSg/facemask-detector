@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload File</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/face-api.js"></script>
+    <script src="js/face.js"></script>
+    <title>Face/Mask Detection</title>
 
     <style>
         #container {
@@ -75,6 +78,13 @@
 </head>
 
 <body>
+    <h1>Live Streaming Face Detection</h1>
+    <div id="container" style="position: relative">
+        <video onloadedmetadata="detectFaces()" autoplay="true" id="videoElement"></video>
+        <canvas id="overlay" class="overlay" />
+    </div>
+
+    <hr>
 
     <h1>Upload Image File</h1>
     <input type="file" name="imageFile" id="imageFile">
@@ -135,6 +145,13 @@
                 previewImage.setAttribute("src", "");
             }
         });
+
+        init();
+        function detectFaces() {
+            const inputSrc = document.getElementById('videoElement');
+            const overlay = document.getElementById('overlay');
+            detectFacesVideo(inputSrc, overlay);
+        }
     </script>
 </body>
 
