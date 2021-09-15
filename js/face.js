@@ -53,9 +53,19 @@ async function detectFacesVideo(inputSrc, overlay)
 }
 
 async function init() {
-    await startWebCam();
+    startWebCam();
     await faceapi.nets.ssdMobilenetv1.loadFromUri(MODEL_URL);
     await faceapi.loadFaceLandmarkModel(MODEL_URL);
     await faceapi.loadFaceRecognitionModel(MODEL_URL);
     console.log("Loaded models");
+}
+
+async function readFileAsDataURL(file) {
+    let result_base64 = await new Promise((resolve) => {
+        let fileReader = new FileReader();
+        fileReader.onload = (e) => resolve(fileReader.result);
+        fileReader.readAsDataURL(file);
+    });
+
+    return result_base64;
 }
