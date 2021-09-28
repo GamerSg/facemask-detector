@@ -43,9 +43,11 @@ async function detectFacesVideo(inputSrc, overlay)
 
     if(faceMatcher)
     {
+        var ctx = overlay.getContext("2d");
         results.forEach(fd => {
-            const bestMatch = faceMatcher.findBestMatch(fd.descriptor)
-            console.log(bestMatch.toString())
+            const bestMatch = faceMatcher.findBestMatch(fd.descriptor);
+              ctx.fillText(bestMatch.label, fd.detection.box.x, fd.detection.box.y+10);  
+              console.log(bestMatch.toString())
           })
     }
 
