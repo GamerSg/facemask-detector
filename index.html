@@ -79,6 +79,9 @@
 
 <body>
     <h1>Live Streaming Face Detection</h1>
+    <h2>
+        Train model to detect mask-wearing: Are you wearing a mask?: <span id="result">N/A</span> (<span id="confidence">N/A</span>)
+    </h2>
     <div id="container" style="position: relative">
         <video onloadedmetadata="detectFaces()" autoplay="true" id="videoElement"></video>
         <canvas id="overlay" class="overlay" />

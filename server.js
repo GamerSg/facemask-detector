@@ -6,8 +6,9 @@ var app = express();
 var host = "localhost";
 var port = 8080;
 //var startPage = "index.html";
-var startPage = "testFD.html";
+//var startPage = "testFD.html";
 //var startPage = "testMD.html";
+var startPage = "testMD2.html";
 
 function gotoIndex(req, res) {
     console.log("Loading test page");
