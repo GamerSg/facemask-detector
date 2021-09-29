@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\js"
+    "\\css",
+    "\\img",
+    "\\js",
+    "\\models"
   ],
+  "SelectedNode": "\\testFD.html",
   "PreviewInSolutionExplorer": false
 }

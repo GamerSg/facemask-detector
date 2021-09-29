@@ -1,61 +1,64 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="css/style.css">
-        <script src="js/face-api.js"></script>
-        <script src="js/face.js"></script>
-    </head>
-    <body>
-        <h1>Upload Image File</h1>
-        <input type="file" name="imageFile" id="imageFile" multiple>
-        <section id="container">
-            <div class="image_preview">
-                <img id="imagePreview" src="" alt="Image Preview" class="image_preview_image">
-            </div>
-            <button onclick="doRegisterFace()">Register</button>
-        </section>
-        <BR>
-
-        <div id="container" style="position: relative">
-            <video onloadedmetadata="detectFaces()" autoplay="true" id="videoElement"></video> 
-            <canvas id="overlay" class="overlay" />
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/face-api.js"></script>
+    <script src="js/face.js"></script>
+</head>
+<body>
+    <h1>Face Detection / Facial Recognition</h1>
+    <h2>Upload Image File</h2>
+    <input type="file" name="imageFile" id="imageFile" multiple>
+    <section id="container">
+        <div class="image_preview">
+            <img id="imagePreview" src="" alt="Image Preview" class="image_preview_image">
         </div>
-        <script>
+        <button onclick="doRegisterFace()">Register</button>
+    </section>
+    <BR>
+
+    <div id="container" style="position: relative">
+        <video onloadedmetadata="detectFaces()" autoplay="true" id="videoElement"></video>
+        <canvas id="overlay" class="overlay" />
+    </div>
+
+    <p>
+        <input type="button" value="Mask Detection" onclick="window.open('testMD.html')">
+    </p>
+
+    <script>
         init();
-        function detectFaces()
-        {
+        function detectFaces() {
             const inputSrc = document.getElementById('videoElement');
             const overlay = document.getElementById('overlay');
             detectFacesVideo(inputSrc, overlay);
         }
 
-        async function doRegisterFace(lbl)
-        {
-            const img = document.getElementById('imagePreview');            
-            await registerFace(img,lbl);
+        async function doRegisterFace(lbl) {
+            const img = document.getElementById('imagePreview');
+            await registerFace(img, lbl);
         }
-        
+
 
         const imageFile = document.getElementById("imageFile");
         imageFile.addEventListener("change", async function () {
-        ///Registration code
-        const previewImage = document.getElementById("imagePreview");
-            for(var i = 0; i < this.files.length; ++i)
-            {
+            ///Registration code
+            const previewImage = document.getElementById("imagePreview");
+            for (var i = 0; i < this.files.length; ++i) {
                 const file = this.files[i];
                 if (file) {
                     console.log(file);
-                // previewText.style.display = "none";
+                    // previewText.style.display = "none";
                     previewImage.style.display = "block";
                     const result = await readFileAsDataURL(file);
                     previewImage.setAttribute("src", result);
-                    await doRegisterFace(file.name);                    
+                    await doRegisterFace(file.name);
                 } else {
-                //  previewText.style.display = "null";
+                    //  previewText.style.display = "null";
                     previewImage.style.display = "null";
                     previewImage.setAttribute("src", "");
                 }
-            }   
-        });        
-        </script>
-    </body>
+            }
+        });
+    </script>
+</body>
 </html>

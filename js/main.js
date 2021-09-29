@@ -134,12 +134,12 @@ const gotResults = (err, results) => {
 // Start predicting when the predict button is clicked
 predict.onclick = () => {
     if (startPredicting) {
-        predict.innerText = 'Start Detecting!';
+        predict.innerText = 'Detection Start!';
         startPredicting = false;
     } else if (isTrainingCompleted || isCustomModelReady) {
         classifier.classify(gotResults);
         startPredicting = true;
-        predict.innerText = 'Stop Detecting!';
+        predict.innerText = 'Detection Stop!';
     } else {
         window.alert('Please train the model or load the existing one!');
     }
@@ -157,7 +157,7 @@ saveModel.onclick = () => {
 
 // Load existing model
 loadModel.onclick = () => {
-    path = 'model/model.json';
+    path = 'models/model.json';
     featureExtractor.load(path, (err, result) => {
         if (err) {
             window.alert('Failed to load custom model');
