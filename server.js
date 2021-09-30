@@ -6,8 +6,8 @@ var app = express();
 var host = "localhost";
 var port = 8080;
 //var startPage = "index.html";
-var startPage = "testMD.html";
-//var startPage = "testFD.html";
+// var startPage = "testMD.html";
+var startPage = "testFD.html";
 
 function gotoIndex(req, res) {
     console.log("Loading test page");
@@ -17,7 +17,7 @@ function gotoIndex(req, res) {
 app.get('/', gotoIndex);
 app.use(express.static("./"));
 
-var server = app.listen(port, host, function() {
+var server = app.listen(port, host, function () {
     var host = server.address().address;
     var port = server.address().port;
 
