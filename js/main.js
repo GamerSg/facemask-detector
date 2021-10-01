@@ -16,6 +16,10 @@ const confidence = document.getElementById('confidence');
 const predict = document.getElementById('predict');
 const loadModel = document.getElementById('loadModel');
 const saveModel = document.getElementById('saveModel');
+const imageFile = document.getElementById("image1File");
+const previewContainer = document.getElementById("imagePreview");
+const previewImage = previewContainer.querySelector(".image1_preview_image");
+const previewText = previewContainer.querySelector(".image1_preview_text");
 
 // Constant
 const DEFAULT_LABEL_1 = 'without_mask';
@@ -167,6 +171,27 @@ loadModel.onclick = () => {
         updateStatus();
     });
 }
+
+imageFile.addEventListener("change", function () {
+    const file = this.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        previewText.style.display = "none";
+        previewImage.style.display = "block";
+
+        reader.addEventListener("load", function () {
+            previewImage.setAttribute("src", this.result);
+        });
+
+        reader.readAsDataURL(file);
+    } else {
+        previewText.style.display = "null";
+        previewImage.style.display = "null";
+        previewImage.setAttribute("src", "");
+    }
+});
 
 // Start program
 main();
