@@ -132,7 +132,21 @@ const gotResults = (err, results) => {
         result.innerText = results[0].label;
         confidence.innerText = results[0].confidence;
         classifier.classify(gotResults);
+        reset();
+        if (results[0].label === "Off") {
+            result.classList.add('mask_off');
+            confidence.classList.add('mask_off');
+        }
+        else {
+            result.classList.add('mask_on');
+            confidence.classList.add('mask_on');
+        }
     }
+}
+
+function reset() {
+    result.classList.remove('mask_off', 'mask_on');
+    confidence.classList.remove('mask_off', 'mask_on');
 }
 
 // Start predicting when the predict button is clicked

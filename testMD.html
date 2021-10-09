@@ -10,16 +10,17 @@
 </head>
 
 <body>
-    <h2>Mask Worn: <span id="result">N/A</span> (<span id="confidence">N/A</span>)</h2>
+    <h2>Mask Worn: <span id="result">N/A</span> <span id="confidence">N/A</span></h2>
     <p>
         Status 1: <input type="text" id="label1Input" value="No"></input>
         Status 2: <input type="text" id="label2Input" value="Yes"></input>
     </p>
-    <div id="vcontainer" style="position: relative">
-    <video onloadedmetadata="detectFaces()" autoplay="true" id="video"></video>
-    <canvas id="overlay" class="overlay" />
-    </div>
     <div id="container">
+        <div id="vcontainer" style="position: relative">
+            <video onloadedmetadata="detectFaces()" autoplay="true" id="video"></video>
+            <canvas id="overlay" class="overlay" />
+        </div>
+
         <div id="status_container">
             <h3>
                 Status: <span id="status"></span>
@@ -43,17 +44,19 @@
                 <button id="saveModel">Save Model</button>
             </p>
             <p>
-                <input type="button" id="button_face" value="Face Detection" onclick="window.open('testFD.html')">
+                <!-- <input type="button" id="button_face" value="Face Detection" onclick="window.open('testFD.html')"> -->
             </p>
         </div>
     </div>
 
-    <hr>
     <h2>Upload Image File for Face Recognition</h2>
     <input type="file" name="imageFile" id="fimageFile" multiple>
     <div class="image_preview">
         <img id="imagePreview" src="" alt="Image Preview" class="image_preview_image">
     </div>
+
+    <hr>
+
     <h2>Upload Image File for Face Mask Detection</h2>
     <input type="file" name="imageFile" id="image1File">
     <section id="container1">

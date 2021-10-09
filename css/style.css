@@ -44,7 +44,7 @@ button:hover {
 	cursor: pointer;
 }
 
-#button_face:hover {
+#fimageFile {
 	background-color: green;
 	color: #f1faee;
 	cursor: pointer;
@@ -89,5 +89,15 @@ button:hover {
 
 #button1:hover {
 	background-color: #e63946;
+	color: #f1faee;
+}
+
+.mask_off {
+	background-color: red;
+	color: #f1faee;
+}
+
+.mask_on {
+	background-color: green;
 	color: #f1faee;
 }
